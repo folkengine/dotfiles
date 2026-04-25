@@ -14,6 +14,7 @@ declare -A FILES=(
   [gitconfig]=.gitconfig
   [vimrc]=.vimrc
   [tmux.conf]=.tmux.conf
+  [claude/commands/debrief.md]=.claude/commands/debrief.md
 )
 
 info()    { echo "[info]  $*"; }
@@ -40,6 +41,7 @@ backup_and_link() {
     warn "Backed up existing $dst → $BACKUP_DIR/"
   fi
 
+  mkdir -p "$(dirname "$dst")"
   ln -s "$src" "$dst"
   success "Linked: $dst → $src"
 }
