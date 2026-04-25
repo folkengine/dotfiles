@@ -1,0 +1,52 @@
+# ~/.gitconfig — global Git configuration
+# NOTE: Set [user] values per-machine via ~/.gitconfig.local (not committed).
+
+[include]
+	path = ~/.gitconfig.local
+
+[core]
+	editor = vim
+	autocrlf = input
+	whitespace = trailing-space,space-before-tab
+
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+
+[diff]
+	colorMoved = default
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = false
+
+[push]
+	default = simple
+
+[merge]
+	ff = false
+
+[alias]
+	st   = status -sb
+	co   = checkout
+	br   = branch -vv
+	lg   = log --oneline --graph --decorate --all
+	undo = reset --soft HEAD~1
+	wip  = commit -am "WIP"
